@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\controllers;
 
 use Yii;
 use app\models\BlogPost;
@@ -8,31 +8,18 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
- * PostController implements the CRUD actions for BlogPost model.
+ * BlogPostController implements the CRUD actions for BlogPost model.
  */
-class PostController extends Controller
+class BlogPostController extends Controller
 {
     /**
      * @inheritdoc
      */
-/*
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete'],
-                'rules' => [
-                    [
-                        'actions' => ['create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['@'], //@ - только авторизированным пользователям. ? - только гостям
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -41,8 +28,6 @@ class PostController extends Controller
             ],
         ];
     }
-*/
-
 
     /**
      * Lists all BlogPost models.
@@ -76,6 +61,7 @@ class PostController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+    /*
     public function actionCreate()
     {
         $model = new BlogPost();
@@ -95,6 +81,7 @@ class PostController extends Controller
      * @param integer $id
      * @return mixed
      */
+    /*
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -114,6 +101,7 @@ class PostController extends Controller
      * @param integer $id
      * @return mixed
      */
+    /*
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();

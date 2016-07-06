@@ -8,7 +8,6 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * PostController implements the CRUD actions for BlogPost model.
@@ -18,21 +17,9 @@ class PostController extends Controller
     /**
      * @inheritdoc
      */
-/*
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete'],
-                'rules' => [
-                    [
-                        'actions' => ['create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['@'], //@ - только авторизированным пользователям. ? - только гостям
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -41,8 +28,6 @@ class PostController extends Controller
             ],
         ];
     }
-*/
-
 
     /**
      * Lists all BlogPost models.

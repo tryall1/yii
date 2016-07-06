@@ -27,12 +27,13 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Уютный бложек',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
@@ -42,15 +43,19 @@ AppAsset::register($this);
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+
+            ['label' => Yii::$app->user->identity->username, 'items' => [
+                ['label' => 'Category', 'url' => ['/blog-category']],
+                ['label' => 'Posts', 'url' => ['/blog-post']],
+                ['label' => 'Comments', 'url' => ['/blog-comment']],
+                [
+                    'label' => 'Logout',
+                    'url' => ['/site/logout'],
+                    'linkOptions' => ['data-method' => 'post']],
+            ]
+            ]
+
+    )
         ],
     ]);
     NavBar::end();

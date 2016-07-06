@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\models\BlogPost;
+use app\models\BlogCategory;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -11,28 +11,27 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
- * PostController implements the CRUD actions for BlogPost model.
+ * BlogCategoryController implements the CRUD actions for BlogCategory model.
  */
-class PostController extends Controller
+class BlogCategoryController extends Controller
 {
     /**
      * @inheritdoc
      */
-/*
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete'],
-                'rules' => [
-                    [
-                        'actions' => ['create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['@'], //@ - только авторизированным пользователям. ? - только гостям
-                    ],
-                ],
-            ],
+	'access' => [
+	'class' => AccessControl::className(),
+	'only' => ['create', 'update', 'delete'],
+	'rules' => [
+	[
+	'actions' => ['create', 'update', 'delete'],
+	'allow' => true,
+	'roles' => ['@'], //@ - только авторизированным пользователям. ? - только гостям
+	],
+	],
+	],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -41,17 +40,15 @@ class PostController extends Controller
             ],
         ];
     }
-*/
-
 
     /**
-     * Lists all BlogPost models.
+     * Lists all BlogCategory models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => BlogPost::find(),
+            'query' => BlogCategory::find(),
         ]);
 
         return $this->render('index', [
@@ -60,7 +57,7 @@ class PostController extends Controller
     }
 
     /**
-     * Displays a single BlogPost model.
+     * Displays a single BlogCategory model.
      * @param integer $id
      * @return mixed
      */
@@ -72,13 +69,13 @@ class PostController extends Controller
     }
 
     /**
-     * Creates a new BlogPost model.
+     * Creates a new BlogCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new BlogPost();
+        $model = new BlogCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -90,7 +87,7 @@ class PostController extends Controller
     }
 
     /**
-     * Updates an existing BlogPost model.
+     * Updates an existing BlogCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -109,7 +106,7 @@ class PostController extends Controller
     }
 
     /**
-     * Deletes an existing BlogPost model.
+     * Deletes an existing BlogCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,15 +119,15 @@ class PostController extends Controller
     }
 
     /**
-     * Finds the BlogPost model based on its primary key value.
+     * Finds the BlogCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return BlogPost the loaded model
+     * @return BlogCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = BlogPost::findOne($id)) !== null) {
+        if (($model = BlogCategory::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
