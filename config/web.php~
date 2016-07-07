@@ -17,7 +17,6 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => ['admin/login'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -39,45 +38,18 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
-
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '<controller>/<action>' => '<controller>/<action>',
-            ]
+		'<controller>/<action>'=>'<controller>/</action>',
+            ],
         ],
-
-
         
     ],
-    'modules' => [
-        'admin' => [
-            'class' => 'app\modules\admin\admin',
-/*
-            'as access' => [
-                'class' => 'yii\filters\AccessControl',
-                //'excepted'=>['login'],
-                //'only' => ['post'],
-                'rules' => [
-                    [
-                        'actions'=>['login'],
-                        'allow' => true,
-                        'roles'=>['?'],
-                    ],
-                    [
-                        'controllers'=>['post', 'default'],
-                        'actions'=>['create', 'update','delete', 'index', 'post'],
-                        'allow' => true,
-                        'roles'=>['@'],
-                    ],
-        ],
-                ],*/
-
-    ],
     'params' => $params,
-]];
+];
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

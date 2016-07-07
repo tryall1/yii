@@ -8,15 +8,17 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * PostController implements the CRUD actions for BlogPost model.
  */
-class PostController extends Controller
+class PostController extends BaseController
 {
     /**
      * @inheritdoc
      */
+/*
     public function behaviors()
     {
         return [
@@ -26,9 +28,10 @@ class PostController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+
         ];
     }
-
+*/
     /**
      * Lists all BlogPost models.
      * @return mixed
