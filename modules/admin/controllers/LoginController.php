@@ -20,10 +20,10 @@ class LoginController extends Controller
 {
     public function actionIndex()
     {
-        if (!Yii::$app->user->isGuest) {
+        /*if (!Yii::$app->user->isGuest) {
             // return $this->goHome();
             $this->redirect("/admin");
-        }
+        }*/
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();

@@ -7,9 +7,9 @@ $this->title = 'Добро пожаловать';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Зашибенно!</h1>
+        <h1>Добро пожаловать</h1>
 
-        <p class="lead">Ты крут и точка.</p>
+        <p class="lead">"Это тестовый сайт.</p>
 
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Начнём</a></p>
     </div>

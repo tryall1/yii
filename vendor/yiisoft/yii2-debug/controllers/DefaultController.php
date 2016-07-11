@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\debug\models\search\Debug;
 use yii\web\Response;
+use yii\filters\AccessControl;
 
 /**
  * Debugger controller
@@ -34,6 +35,21 @@ class DefaultController extends Controller
      */
     public $summary;
 
+
+    public function behaviors(){
+	'access' => [
+	'class' => AccessControl::className(),
+	'only' => ['create', 'update', 'delete'],
+	'rules' => [
+	[
+	'actions' => ['create', 'update', 'delete'],
+	'allow' => true,
+	'roles' => ['@'], //@ - только авторизированным пользователям. ? - только гостям
+	],
+	],
+	],
+	];
+    }
 
     /**
      * @inheritdoc
