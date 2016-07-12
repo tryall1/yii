@@ -58,8 +58,10 @@ class PostController extends BaseController
     public function actionView($id)
     {
         if(BlogComment::find()->where(['post_id'=>$id])->all()!=null) {
-            $comment = BlogComment::find()->where(['post_id' => $id])->all();
-            }else{
+            $comment = new ActiveDataProvider([
+                'query'=>BlogComment::find()->where(['post_id' => $id]),
+            ]);
+                }else{
             $comment=null;
             }
         return $this->render('view', [
