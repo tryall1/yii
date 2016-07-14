@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $comments,
             'itemOptions' => ['class' => 'item'],
             'itemView' => function ($comments, $key, $index, $widget) {
-                echo Html::tag('p',Html::encode($comments->author));
+                echo Html::tag('b',Html::encode($comments->author));
                echo  Html::tag('p',Html::encode($comments->content));
 
             },
